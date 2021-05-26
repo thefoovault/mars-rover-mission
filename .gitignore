@@ -1,0 +1,10 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/apps/MarsRoverMissionApi/config/secrets/prod/prod.decrypt.private.php
+/apps/MarsRoverMissionApi/public/bundles/
+/apps/MarsRoverMissionApi/var/
+/vendor/
+/.idea
+###< symfony/framework-bundle ###

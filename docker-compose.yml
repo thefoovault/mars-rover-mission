@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  php_mars_rover_mission:
+    build:
+      context: etc/infrastructure/php
+      dockerfile: Dockerfile
+    container_name: php_mars_rover_mission
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - 9001:9000
+
+  nginx_mars_rover_mission:
+    image: nginx:latest
+    container_name: nginx_mars_rover_mission
+    ports:
+      - 8000:80
+    volumes:
+      - ./etc/infrastructure/nginx/conf.d:/etc/nginx/conf.d
+      - ./apps/MarsRoverMissionApi/public/:/app/apps/MarsRoverMissionApi/public
+    depends_on:
+      - php_mars_rover_mission
