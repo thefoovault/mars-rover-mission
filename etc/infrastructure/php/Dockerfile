@@ -1,8 +1,10 @@
-FROM php:8.0-fpm-alpine
+FROM php:8.0.6-fpm-alpine
 
-RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.6.0/pickle.phar \
-    && mv pickle.phar /usr/local/bin/pickle \
-    && chmod +x /usr/local/bin/pickle
+COPY php.ini /usr/local/etc/php/php.ini
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY xdebug.ini /usr/local/etc/php/conf.d/
 
 RUN apk --update upgrade \
     && apk add --no-cache autoconf automake make gcc g++ bash icu-dev libzip-dev \
@@ -13,13 +15,14 @@ RUN apk --update upgrade \
         zip \
         pdo_mysql
 
-RUN pickle install apcu-5.1.19
+RUN pecl install xdebug
 
 RUN docker-php-ext-enable \
-        opcache
+        opcache \
+        xdebug
+
+ENV PHP_IDE_CONFIG 'serverName=DockerApp'
 
 RUN apk add --no-cache $PHPIZE_DEPS
 
-COPY php.ini /usr/local/etc/php/php.ini
 
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
