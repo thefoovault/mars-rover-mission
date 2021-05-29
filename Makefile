@@ -1,5 +1,5 @@
 all: help
-#.PHONY: help status build composer-install build-container start stop shell
+.PHONY: help status build composer-install build-container start stop down destroy shell test hooks run-tests
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -11,7 +11,7 @@ status:
 	@docker-compose ps
 
 ## build:		Start container and install packages
-build: build-container start composer-install
+build: build-container start hooks composer-install
 
 ## build-container:Rebuild a container
 build-container:
@@ -48,3 +48,7 @@ test:
 ## run-tests:	Run all tests
 run-tests:
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
+
+hooks:
+	rm -rf .git/hooks
+	ln -s ../docs/git/hooks-docker .git/hooks

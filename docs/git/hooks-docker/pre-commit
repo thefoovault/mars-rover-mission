@@ -1,0 +1,2 @@
+#!/bin/bash -e
+docker-compose exec -T php_mars_rover_mission docs/git/hooks/pre-commit
