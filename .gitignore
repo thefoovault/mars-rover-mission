@@ -7,4 +7,11 @@
 /apps/MarsRoverMissionApi/var/
 /vendor/
 /.idea
+/etc/data/
 ###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+/build/
+###< phpunit/phpunit ###

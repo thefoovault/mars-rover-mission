@@ -40,3 +40,11 @@ shell:
 ## install:	Install packages
 composer-install:
 	docker-compose exec php_mars_rover_mission composer install
+
+## test:		Run all tests inside docker
+test:
+	@docker-compose exec php_mars_rover_mission make run-tests
+
+## run-tests:	Run all tests
+run-tests:
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests

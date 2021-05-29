@@ -38,7 +38,7 @@ abstract class Controller extends AbstractController
     protected function createApiResponse(mixed $data, int $status_code = Response::HTTP_OK): Response
     {
         return new Response(
-            $data,
+            (isset($data)) ? json_encode($data) : '',
             $status_code,
             [
                 'Content-Type' => 'application/json',

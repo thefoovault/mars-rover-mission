@@ -7,6 +7,11 @@
       "MarsRoverMissionApi\\": "apps/MarsRoverMissionApi/src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests"
+    }
+  },
   "extra": {
     "bin-dir": "apps/MarsRoverMissionApi/bin",
     "config-dir": "apps/MarsRoverMissionApi/config",
@@ -20,7 +25,12 @@
     "symfony/dotenv": "^5.2",
     "symfony/yaml": "^5.2",
     "symfony/console": "^5.2",
-    "symfony/messenger": "^5.2"
+    "symfony/messenger": "^5.2",
+    "doctrine/annotations": "^1.0",
+    "phpdocumentor/reflection-docblock": "^5.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
   },
   "scripts": {
     "auto-scripts": {

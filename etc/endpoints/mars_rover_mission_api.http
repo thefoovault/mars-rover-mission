@@ -1,0 +1,9 @@
+# Create a course
+POST localhost:8000/map/generate
+Content-Type: application/json
+
+{
+  "width": 10,
+  "height": 10
+}
+
