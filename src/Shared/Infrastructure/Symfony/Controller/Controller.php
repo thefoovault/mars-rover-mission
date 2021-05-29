@@ -8,8 +8,10 @@ use Shared\Domain\Bus\Command\Command;
 use Shared\Domain\Bus\Command\CommandBus;
 use Shared\Domain\Bus\Query\Query;
 use Shared\Domain\Bus\Query\QueryBus;
-use Shared\Domain\Bus\Query\Response;
+use Shared\Domain\Bus\Query\QueryResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class Controller extends AbstractController
 {
@@ -18,7 +20,7 @@ abstract class Controller extends AbstractController
         protected CommandBus $commandBus
     ) {}
 
-    protected function ask(Query $query): ?Response
+    protected function ask(Query $query): ?QueryResponse
     {
         return $this->queryBus->ask($query);
     }
@@ -26,5 +28,21 @@ abstract class Controller extends AbstractController
     protected function dispatch(Command $command): void
     {
         $this->commandBus->dispatch($command);
+    }
+
+    protected function getPayload(Request $request): array
+    {
+        return json_decode($request->getContent(), true);
+    }
+
+    protected function createApiResponse(mixed $data, int $status_code = Response::HTTP_OK): Response
+    {
+        return new Response(
+            $data,
+            $status_code,
+            [
+                'Content-Type' => 'application/json',
+            ]
+        );
     }
 }

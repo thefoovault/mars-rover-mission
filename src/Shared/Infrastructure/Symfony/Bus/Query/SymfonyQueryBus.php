@@ -7,7 +7,7 @@ namespace Shared\Infrastructure\Symfony\Bus\Query;
 
 use Shared\Domain\Bus\Query\Query;
 use Shared\Domain\Bus\Query\QueryBus;
-use Shared\Domain\Bus\Query\Response;
+use Shared\Domain\Bus\Query\QueryResponse;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -19,7 +19,7 @@ final class SymfonyQueryBus implements QueryBus
         $this->messageBus = $bus;
     }
 
-    public function ask(Query $query): ?Response
+    public function ask(Query $query): ?QueryResponse
     {
         return $this->handle($query);
     }
