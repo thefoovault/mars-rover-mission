@@ -17,7 +17,7 @@ final class InvalidPosition extends DomainError
         parent::__construct();
     }
 
-    function errorMessage(): string
+    public function errorMessage(): string
     {
         return sprintf(
             'The position is invalid: <%s>',

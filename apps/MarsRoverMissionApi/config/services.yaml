@@ -10,13 +10,24 @@ services:
         resource: '../../../src/MarsRoverMission/'
     Shared\:
         resource: '../../../src/Shared/'
+
+    Shared\Infrastructure\Symfony\Bus\Query\SymfonyQueryBus:
+        arguments:
+            $bus: '@query.bus'
+
     _instanceof:
         Shared\Domain\Bus\Command\CommandHandler:
             tags:
                 - { name: messenger.message_handler, bus: command.bus }
+        Shared\Domain\Bus\Query\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
 
 framework:
     messenger:
         default_bus: command.bus
         buses:
             command.bus:
+            query.bus:
+
+    error_controller: MarsRoverMissionApi\Controller\ErrorController
