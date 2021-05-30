@@ -31,7 +31,8 @@ final class GenerateMapCommandHandlerTest extends TestCase
     public function shouldGenerateMap(): void
     {
         $this->mapRepository
-            ->expects(self::once())->method('save');
+            ->expects(self::once())
+            ->method('save');
 
         $this->commandHandler->__invoke(
             new GenerateMapCommand(
