@@ -20,7 +20,7 @@ final class InvalidPosition extends DomainError
     function errorMessage(): string
     {
         return sprintf(
-            'The position is invalid: <%i>',
+            'The position is invalid: <%s>',
             $this->position->value()
         );
     }
