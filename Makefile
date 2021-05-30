@@ -47,7 +47,7 @@ test:
 
 ## run-tests:	Run all tests
 run-tests:
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
+	XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
 
 hooks:
 	rm -rf .git/hooks

@@ -4,7 +4,18 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          backupGlobals="false"
+         backupStaticAttributes="false"
          colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         stopOnRisky="false"
+         verbose="false"
          bootstrap="tests/bootstrap.php"
 >
     <php>
@@ -19,23 +30,16 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage includeUncoveredFiles="false"
+              processUncoveredFiles="false"
+              ignoreDeprecatedCodeUnits="false"
+              disableCodeCoverageIgnore="false">
+        <include>
             <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
-
-    <!-- Run `composer require symfony/phpunit-bridge` before enabling this extension -->
-    <!--
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-    </listeners>
-    -->
-
-    <!-- Run `composer require symfony/panther` before enabling this extension -->
-    <!--
-    <extensions>
-        <extension class="Symfony\Component\Panther\ServerExtension" />
-    </extensions>
-    -->
+        </include>
+        <exclude>
+            <directory suffix=".php">src/Shared</directory>
+            <directory suffix=".php">src/MarsRoverMission/Infrastructure</directory>
+        </exclude>
+    </coverage>
 </phpunit>
