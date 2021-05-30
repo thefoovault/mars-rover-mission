@@ -15,17 +15,16 @@ final class ObstacleGenerationService
     public function generate(Dimensions $dimensions): Obstacles
     {
         $obstacles = [];
-        $usedObstacles = [];
         $numberObstacles = $dimensions->width()->value();
 
         for($i = self::FIRST_POSITION; $i < $numberObstacles; $i++) {
             $obstacleGenerated = false;
             while (!$obstacleGenerated) {
                 $obstacle = $this->generateObstacle($dimensions);
-                $obstacleGenerated = $this->checkObstacleNotInList($usedObstacles, $obstacle);
+                $obstacleGenerated = $this->checkObstacleNotInList($obstacles, $obstacle);
             }
-            $obstacles[] = $obstacle;
-            $usedObstacles[] = $obstacle->x()->value() . ' ' . $obstacle->y()->value();
+            $coordinate = $this->coordinateToString($obstacle);
+            $obstacles[$coordinate] = $obstacle;
         }
 
         return new Obstacles($obstacles);
@@ -44,6 +43,11 @@ final class ObstacleGenerationService
 
     private function checkObstacleNotInList(array $obstacles, Obstacle $obstacle): bool
     {
-        return !in_array($obstacle->x()->value() . ' ' . $obstacle->y()->value(), $obstacles);
+        return !isset($obstacles[$this->coordinateToString($obstacle)]);
+    }
+
+    private function coordinateToString(Obstacle $obstacle): string
+    {
+        return $obstacle->x()->value() . ' ' . $obstacle->y()->value();
     }
 }
