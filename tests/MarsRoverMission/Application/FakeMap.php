@@ -14,7 +14,7 @@ use MarsRoverMission\Domain\Map\Obstacles;
 use MarsRoverMission\Domain\Map\Position;
 use MarsRoverMission\Domain\Map\Width;
 
-class FakeMap
+final class FakeMap
 {
     public static function create(): Map
     {
