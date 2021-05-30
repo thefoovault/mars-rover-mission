@@ -18,6 +18,7 @@ use MarsRoverMission\Domain\Map\Obstacles;
 use MarsRoverMission\Domain\Map\Position;
 use MarsRoverMission\Domain\Map\Width;
 use PHPUnit\Framework\TestCase;
+use Test\MarsRoverMission\Application\FakeMap;
 
 final class GetMapQueryHandlerTest extends TestCase
 {
@@ -37,7 +38,7 @@ final class GetMapQueryHandlerTest extends TestCase
     /** @test */
     public function shouldGetValidMap(): void
     {
-        $map = $this->createMap();
+        $map = FakeMap::create();
 
         $this->mapRepository
             ->expects(self::once())
@@ -70,22 +71,6 @@ final class GetMapQueryHandlerTest extends TestCase
 
         $this->getMapQueryHandler->__invoke(
             new GetMapQuery()
-        );
-    }
-
-    private function createMap(): Map
-    {
-        return new Map(
-            new Dimensions(
-                new Width(10),
-                new Height(20)
-            ),
-            new Obstacles([
-                new Obstacle(
-                    new Position(0),
-                    new Position(0)
-                )
-            ])
         );
     }
 }

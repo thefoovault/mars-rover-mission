@@ -12,3 +12,13 @@ Content-Type: application/json
 GET localhost:8000/map
 Content-Type: application/json
 
+###
+# Set Rover position
+POST localhost:8000/rover/position
+Content-Type: application/json
+
+{
+  "x": 0,
+  "y": 0,
+  "facing-direction": "N"
+}
