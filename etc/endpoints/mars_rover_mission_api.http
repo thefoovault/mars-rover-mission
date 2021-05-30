@@ -1,4 +1,4 @@
-# Create a course
+# Create a map
 POST localhost:8000/map/generate
 Content-Type: application/json
 
@@ -6,4 +6,9 @@ Content-Type: application/json
   "width": 10,
   "height": 10
 }
+
+###
+# Get a map
+GET localhost:8000/map
+Content-Type: application/json
 

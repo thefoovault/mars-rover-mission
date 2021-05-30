@@ -12,12 +12,14 @@ use Shared\Domain\Bus\Query\QueryResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 abstract class Controller extends AbstractController
 {
     public function __construct(
         protected QueryBus $queryBus,
-        protected CommandBus $commandBus
+        protected CommandBus $commandBus,
+        private SerializerInterface $serializer
     ) {}
 
     protected function ask(Query $query): ?QueryResponse
@@ -38,7 +40,7 @@ abstract class Controller extends AbstractController
     protected function createApiResponse(mixed $data, int $status_code = Response::HTTP_OK): Response
     {
         return new Response(
-            (isset($data)) ? json_encode($data) : '',
+            $this->serializer->serialize($data, 'json'),
             $status_code,
             [
                 'Content-Type' => 'application/json',

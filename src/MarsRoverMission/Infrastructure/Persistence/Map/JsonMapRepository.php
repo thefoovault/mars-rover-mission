@@ -4,13 +4,21 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Infrastructure\Persistence\Map;
 
+use MarsRoverMission\Application\Map\ObstaclesToArray;
+use MarsRoverMission\Domain\Map\Dimensions;
+use MarsRoverMission\Domain\Map\Exception\MapNotFound;
+use MarsRoverMission\Domain\Map\Height;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\MapRepository;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
+use MarsRoverMission\Domain\Map\Position;
+use MarsRoverMission\Domain\Map\Width;
 
 final class JsonMapRepository implements MapRepository
 {
+    use ObstaclesToArray;
+
     private const FILE = '../../../etc/data/map.json';
 
     public function save(Map $map): void
@@ -25,26 +33,35 @@ final class JsonMapRepository implements MapRepository
                 'width' => $map->dimensions()->width()->value(),
                 'height' => $map->dimensions()->height()->value()
             ],
-            'obstacles' => $this->extractObstaclesToArray($map->obstacles())
+            'obstacles' => self::extractObstaclesToArray($map->obstacles())
         ];
     }
 
-    private function extractObstaclesToArray(Obstacles $obstacles): array
+    public function find(): Map
     {
-        $obstaclesArray = [];
-
-        foreach ($obstacles as $obstacle) {
-            $obstaclesArray[] = $this->extractObstacleToArray($obstacle);
+        if (!file_exists(self::FILE)) {
+            throw new MapNotFound();
         }
+        $mapInfo = json_decode(file_get_contents(self::FILE), true);
 
-        return $obstaclesArray;
+        return new Map(
+            new Dimensions(
+                new Width($mapInfo['dimensions']['width']),
+                new Height($mapInfo['dimensions']['width'])
+            ),
+            $this->extractArrayToObstacles($mapInfo['obstacles'])
+        );
     }
 
-    private function extractObstacleToArray(Obstacle $obstacle): array
+    private function extractArrayToObstacles(array $obstaclesArray): Obstacles
     {
-        return [
-            'x' => $obstacle->x()->value(),
-            'y' => $obstacle->y()->value()
-        ];
+        $obstacles = [];
+        foreach ($obstaclesArray as $obstacle) {
+            $obstacles[] = new Obstacle(
+                new Position($obstacle['x']),
+                new Position($obstacle['y'])
+            );
+        }
+        return new Obstacles($obstacles);
     }
 }

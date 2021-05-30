@@ -252,6 +252,12 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
     },
+    "symfony/property-access": {
+        "version": "v5.2.4"
+    },
+    "symfony/property-info": {
+        "version": "v5.2.8"
+    },
     "symfony/redis-messenger": {
         "version": "v5.2.7"
     },
@@ -268,6 +274,9 @@
             "apps/MarsRoverMissionApi/config/packages/routing.yaml",
             "apps/MarsRoverMissionApi/config/routes.yaml"
         ]
+    },
+    "symfony/serializer": {
+        "version": "v5.2.9"
     },
     "symfony/serializer-pack": {
         "version": "v1.0.4"

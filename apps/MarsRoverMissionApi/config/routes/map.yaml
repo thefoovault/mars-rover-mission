@@ -1,4 +1,9 @@
-product_retrieve_all:
+map_generate:
   path: /map/generate
   controller: MarsRoverMissionApi\Controller\Map\MapGeneratorController
   methods: [POST]
+
+get_map:
+  path: /map
+  controller: MarsRoverMissionApi\Controller\Map\GetMapController
+  methods: [GET]

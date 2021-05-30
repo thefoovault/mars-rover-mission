@@ -9,4 +9,6 @@ namespace MarsRoverMission\Domain\Map;
 interface MapRepository
 {
     public function save(Map $map): void;
+
+    public function find(): Map;
 }
