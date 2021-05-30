@@ -30,8 +30,8 @@
         </testsuite>
     </testsuites>
 
-    <coverage includeUncoveredFiles="false"
-              processUncoveredFiles="false"
+    <coverage includeUncoveredFiles="true"
+              processUncoveredFiles="true"
               ignoreDeprecatedCodeUnits="false"
               disableCodeCoverageIgnore="false">
         <include>
