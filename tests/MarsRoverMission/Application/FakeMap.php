@@ -6,13 +6,13 @@ declare(strict_types=1);
 namespace Test\MarsRoverMission\Application;
 
 
-use MarsRoverMission\Domain\Map\Dimensions;
-use MarsRoverMission\Domain\Map\Height;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Height;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
-use MarsRoverMission\Domain\Map\Width;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Width;
 
 final class FakeMap
 {

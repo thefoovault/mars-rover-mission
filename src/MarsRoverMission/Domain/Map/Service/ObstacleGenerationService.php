@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map\Service;
 
-use MarsRoverMission\Domain\Map\Dimensions;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Position;

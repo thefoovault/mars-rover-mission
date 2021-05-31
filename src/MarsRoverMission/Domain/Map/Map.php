@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map;
 
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
+
 final class Map
 {
     public function __construct(

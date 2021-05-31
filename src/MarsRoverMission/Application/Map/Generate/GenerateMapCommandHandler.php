@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Application\Map\Generate;
 
-use MarsRoverMission\Domain\Map\Dimensions;
-use MarsRoverMission\Domain\Map\Height;
-use MarsRoverMission\Domain\Map\Width;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Height;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Width;
 use Shared\Domain\Bus\Command\CommandHandler;
 
 final class GenerateMapCommandHandler implements CommandHandler

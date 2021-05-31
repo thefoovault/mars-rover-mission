@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Application\Map\Generate;
 
-use MarsRoverMission\Domain\Map\Dimensions;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\MapRepository;
 use MarsRoverMission\Domain\Map\Service\ObstacleGenerationService;

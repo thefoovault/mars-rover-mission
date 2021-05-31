@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map\Service;
 
-use MarsRoverMission\Domain\Map\Dimensions;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
 use MarsRoverMission\Domain\Map\Exception\ObstacleCollision;
 use MarsRoverMission\Domain\Map\Exception\PositionOutOfBounds;
 use MarsRoverMission\Domain\Map\Map;
