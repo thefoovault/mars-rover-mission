@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Rover;
 
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+
 final class Rover
 {
     public function __construct(

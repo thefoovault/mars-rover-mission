@@ -11,7 +11,7 @@ use MarsRoverMission\Domain\Map\Height;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\Map\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use MarsRoverMission\Domain\Map\Width;
 
 final class FakeMap

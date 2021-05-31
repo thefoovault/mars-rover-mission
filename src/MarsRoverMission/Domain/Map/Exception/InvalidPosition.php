@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map\Exception;
 
-use MarsRoverMission\Domain\Map\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use Shared\Domain\Exception\DomainError;
 
 final class InvalidPosition extends DomainError

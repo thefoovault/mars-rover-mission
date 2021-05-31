@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MarsRoverMission\Domain\Rover;
-
-use MarsRoverMission\Domain\Map\Point;
-use MarsRoverMission\Domain\Map\Position;
+namespace MarsRoverMission\Domain\TwoDimensionalPlane;
 
 final class Coordinates extends Point
 {

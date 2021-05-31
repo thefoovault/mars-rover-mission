@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Application\Rover\SetPosition;
 
-use MarsRoverMission\Domain\Map\Position;
-use MarsRoverMission\Domain\Rover\Coordinates;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use MarsRoverMission\Domain\Rover\FacingDirection;
 use Shared\Domain\Bus\Command\CommandHandler;
 

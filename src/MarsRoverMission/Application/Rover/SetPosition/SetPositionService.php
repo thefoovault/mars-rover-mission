@@ -6,7 +6,7 @@ namespace MarsRoverMission\Application\Rover\SetPosition;
 
 use MarsRoverMission\Application\Map\Get\GetMapService;
 use MarsRoverMission\Domain\Map\Service\CheckAvailablePositionService;
-use MarsRoverMission\Domain\Rover\Coordinates;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use MarsRoverMission\Domain\Rover\FacingDirection;
 use MarsRoverMission\Domain\Rover\Rover;
 use MarsRoverMission\Domain\Rover\RoverRepository;

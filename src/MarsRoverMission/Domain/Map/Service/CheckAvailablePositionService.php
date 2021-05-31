@@ -10,7 +10,7 @@ use MarsRoverMission\Domain\Map\Exception\PositionOutOfBounds;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\Rover\Coordinates;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 
 final class CheckAvailablePositionService
 {

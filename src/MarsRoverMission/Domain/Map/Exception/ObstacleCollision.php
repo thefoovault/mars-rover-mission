@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Map\Exception;
 
 use MarsRoverMission\Domain\Map\Obstacle;
-use MarsRoverMission\Domain\Rover\Coordinates;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use Shared\Domain\Exception\DomainError;
 
 final class ObstacleCollision extends DomainError

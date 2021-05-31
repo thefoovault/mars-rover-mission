@@ -13,8 +13,6 @@ use MarsRoverMission\Domain\Map\MapRepository;
 use MarsRoverMission\Domain\Map\Service\CheckAvailablePositionService;
 use MarsRoverMission\Domain\Rover\Exception\InvalidInstruction;
 use MarsRoverMission\Domain\Rover\Exception\RoverMovementInterrupted;
-use MarsRoverMission\Domain\Rover\Instruction;
-use MarsRoverMission\Domain\Rover\Instructions;
 use MarsRoverMission\Domain\Rover\RoverRepository;
 use MarsRoverMission\Domain\Rover\Service\ExecuteMoveInstructionsService;
 use PHPUnit\Framework\TestCase;

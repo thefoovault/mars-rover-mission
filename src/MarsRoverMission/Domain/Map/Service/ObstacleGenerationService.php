@@ -7,7 +7,7 @@ namespace MarsRoverMission\Domain\Map\Service;
 use MarsRoverMission\Domain\Map\Dimensions;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\Map\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 
 final class ObstacleGenerationService
 {

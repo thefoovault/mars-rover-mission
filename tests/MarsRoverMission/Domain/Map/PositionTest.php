@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Test\MarsRoverMission\Domain\Map;
 
 use MarsRoverMission\Domain\Map\Exception\InvalidPosition;
-use MarsRoverMission\Domain\Map\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use PHPUnit\Framework\TestCase;
 
 final class PositionTest extends TestCase

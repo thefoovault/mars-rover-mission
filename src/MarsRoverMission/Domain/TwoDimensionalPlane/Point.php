@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MarsRoverMission\Domain\Map;
+namespace MarsRoverMission\Domain\TwoDimensionalPlane;
 
 abstract class Point
 {

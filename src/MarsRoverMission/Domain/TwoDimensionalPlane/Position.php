@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MarsRoverMission\Domain\Map;
+namespace MarsRoverMission\Domain\TwoDimensionalPlane;
 
 use MarsRoverMission\Domain\Map\Exception\InvalidPosition;
 use Shared\Domain\ValueObject\IntegerValueObject;
