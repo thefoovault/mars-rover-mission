@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MarsRoverMission\Domain\Map\Exception;
+namespace MarsRoverMission\Domain\TwoDimensionalPlane\Exception;
 
 use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use Shared\Domain\Exception\DomainError;
