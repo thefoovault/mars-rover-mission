@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-namespace Test\MarsRoverMission\Application;
+namespace Test\MarsRoverMission;
 
 
 use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;

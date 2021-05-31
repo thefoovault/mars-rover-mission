@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\MarsRoverMission\Application;
+namespace Test\MarsRoverMission;
 
 use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;

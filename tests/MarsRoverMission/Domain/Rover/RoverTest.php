@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Test\MarsRoverMission\Domain\Rover;
 
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeRover;
+use Test\MarsRoverMission\FakeRover;
 
 class RoverTest extends TestCase
 {

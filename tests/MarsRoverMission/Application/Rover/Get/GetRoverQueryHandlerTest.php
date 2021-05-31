@@ -11,7 +11,7 @@ use MarsRoverMission\Application\Rover\RoverQueryResponse;
 use MarsRoverMission\Domain\Rover\Exception\RoverNotFound;
 use MarsRoverMission\Domain\Rover\RoverRepository;
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeRover;
+use Test\MarsRoverMission\FakeRover;
 
 final class GetRoverQueryHandlerTest extends TestCase
 {

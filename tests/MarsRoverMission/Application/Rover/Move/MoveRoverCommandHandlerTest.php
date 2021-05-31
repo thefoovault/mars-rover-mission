@@ -16,8 +16,8 @@ use MarsRoverMission\Domain\Rover\Exception\RoverMovementInterrupted;
 use MarsRoverMission\Domain\Rover\RoverRepository;
 use MarsRoverMission\Domain\Rover\Service\ExecuteMoveInstructionsService;
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeMap;
-use Test\MarsRoverMission\Application\FakeRover;
+use Test\MarsRoverMission\FakeMap;
+use Test\MarsRoverMission\FakeRover;
 
 class MoveRoverCommandHandlerTest extends TestCase
 {

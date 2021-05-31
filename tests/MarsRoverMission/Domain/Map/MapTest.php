@@ -6,7 +6,7 @@ namespace Test\MarsRoverMission\Domain\Map;
 
 use MarsRoverMission\Domain\Map\Obstacles;
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeMap;
+use Test\MarsRoverMission\FakeMap;
 use Traversable;
 
 final class MapTest extends TestCase

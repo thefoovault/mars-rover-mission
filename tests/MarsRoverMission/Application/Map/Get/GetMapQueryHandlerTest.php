@@ -11,7 +11,7 @@ use MarsRoverMission\Application\Map\MapQueryResponse;
 use MarsRoverMission\Domain\Map\Exception\MapNotFound;
 use MarsRoverMission\Domain\Map\MapRepository;
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeMap;
+use Test\MarsRoverMission\FakeMap;
 
 final class GetMapQueryHandlerTest extends TestCase
 {

@@ -15,7 +15,7 @@ use MarsRoverMission\Domain\Map\Service\CheckAvailablePositionService;
 use MarsRoverMission\Domain\Rover\Exception\InvalidFacingDirection;
 use MarsRoverMission\Domain\Rover\RoverRepository;
 use PHPUnit\Framework\TestCase;
-use Test\MarsRoverMission\Application\FakeMap;
+use Test\MarsRoverMission\FakeMap;
 
 final class SetPositionCommandHandlerTest extends TestCase
 {
