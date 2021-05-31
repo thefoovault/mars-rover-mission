@@ -23,6 +23,6 @@ final class SetRoverPositionController extends Controller
             )
         );
 
-        return $this->createApiResponse('', Response::HTTP_CREATED);
+        return $this->createApiResponse(null, Response::HTTP_CREATED);
     }
 }
