@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MarsRoverMission\Domain\TwoDimensionalPlane;
+namespace Shared\Domain\ValueObject;
+
+use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 
 abstract class Point
 {

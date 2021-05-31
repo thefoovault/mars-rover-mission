@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\TwoDimensionalPlane;
 
+use Shared\Domain\ValueObject\Point;
+
 final class Coordinates extends Point
 {
     public function __construct(Position $x, Position $y)
