@@ -33,4 +33,48 @@ final class FacingDirection extends StringValueObject
             throw new InvalidFacingDirection($this);
         }
     }
+
+    public function isNorth(): bool
+    {
+        return $this->value() === self::NORTH;
+    }
+
+    public function isSouth(): bool
+    {
+        return $this->value() === self::SOUTH;
+    }
+
+    public function isEast(): bool
+    {
+        return $this->value() === self::EAST;
+    }
+
+    public function isWest(): bool
+    {
+        return $this->value() === self::WEST;
+    }
+
+    public function leftFacingDirection(): self
+    {
+        $newFacingDirection = match ($this->value) {
+            self::NORTH => self::WEST,
+            self::WEST => self::SOUTH,
+            self::SOUTH => self::EAST,
+            self::EAST => self::NORTH
+        };
+
+        return new self($newFacingDirection);
+    }
+
+    public function rightFacingDirection(): self
+    {
+        $newFacingDirection = match ($this->value) {
+            self::NORTH => self::EAST,
+            self::EAST => self::SOUTH,
+            self::SOUTH => self::WEST,
+            self::WEST => self::NORTH
+        };
+
+        return new self($newFacingDirection);
+    }
 }

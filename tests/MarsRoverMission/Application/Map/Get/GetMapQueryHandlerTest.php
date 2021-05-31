@@ -8,15 +8,8 @@ use MarsRoverMission\Application\Map\Get\GetMapQuery;
 use MarsRoverMission\Application\Map\Get\GetMapQueryHandler;
 use MarsRoverMission\Application\Map\Get\GetMapService;
 use MarsRoverMission\Application\Map\MapQueryResponse;
-use MarsRoverMission\Domain\Map\Dimensions;
 use MarsRoverMission\Domain\Map\Exception\MapNotFound;
-use MarsRoverMission\Domain\Map\Height;
-use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\MapRepository;
-use MarsRoverMission\Domain\Map\Obstacle;
-use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\Map\Position;
-use MarsRoverMission\Domain\Map\Width;
 use PHPUnit\Framework\TestCase;
 use Test\MarsRoverMission\Application\FakeMap;
 

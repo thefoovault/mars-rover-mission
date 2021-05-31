@@ -2,3 +2,8 @@ set_rover_position:
   path: /rover/position
   controller: MarsRoverMissionApi\Controller\Rover\SetRoverPositionController
   methods: [POST]
+
+move_rover:
+  path: /rover/move
+  controller: MarsRoverMissionApi\Controller\Rover\MoveRoverController
+  methods: [PUT]

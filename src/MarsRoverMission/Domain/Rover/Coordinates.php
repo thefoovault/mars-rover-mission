@@ -13,4 +13,12 @@ final class Coordinates extends Point
     {
         parent::__construct($x, $y);
     }
+
+    public function sumCoordinates(int $xDiff, int $yDiff): self
+    {
+        return new self(
+            $this->x()->sumPosition($xDiff),
+            $this->y()->sumPosition($yDiff)
+        );
+    }
 }

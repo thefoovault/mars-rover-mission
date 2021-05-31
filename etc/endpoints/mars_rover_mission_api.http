@@ -22,3 +22,12 @@ Content-Type: application/json
   "y": 0,
   "facing-direction": "N"
 }
+
+###
+# Move Rover
+PUT localhost:8000/rover/move
+Content-Type: application/json
+
+{
+  "instructions": "FF"
+}

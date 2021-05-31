@@ -21,4 +21,9 @@ final class Position extends IntegerValueObject
             throw new InvalidPosition($this);
         }
     }
+
+    public function sumPosition(int $diff): self
+    {
+        return new self($this->value() + $diff);
+    }
 }

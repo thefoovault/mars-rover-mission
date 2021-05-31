@@ -7,4 +7,6 @@ namespace MarsRoverMission\Domain\Rover;
 interface RoverRepository
 {
     public function save(Rover $rover): void;
+
+    public function find(): Rover;
 }
