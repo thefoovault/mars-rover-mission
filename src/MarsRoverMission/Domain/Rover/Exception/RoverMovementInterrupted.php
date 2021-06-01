@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Rover\Exception;
 
 use MarsRoverMission\Domain\Rover\Rover;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class RoverMovementInterrupted extends DomainError
+final class RoverMovementInterrupted extends InvalidDataException
 {
     public Rover $rover;
 

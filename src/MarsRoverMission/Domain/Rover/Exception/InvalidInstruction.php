@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Rover\Exception;
 
 use MarsRoverMission\Domain\Rover\Instruction;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class InvalidInstruction extends DomainError
+final class InvalidInstruction extends InvalidDataException
 {
     private Instruction $instruction;
 

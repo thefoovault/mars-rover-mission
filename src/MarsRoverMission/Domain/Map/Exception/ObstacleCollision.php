@@ -6,9 +6,9 @@ namespace MarsRoverMission\Domain\Map\Exception;
 
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Rover\PointRover;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class ObstacleCollision extends DomainError
+final class ObstacleCollision extends InvalidDataException
 {
     private Obstacle $obstacle;
     private PointRover $coordinates;

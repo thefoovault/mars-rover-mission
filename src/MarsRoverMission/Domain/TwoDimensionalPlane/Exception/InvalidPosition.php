@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\TwoDimensionalPlane\Exception;
 
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class InvalidPosition extends DomainError
+final class InvalidPosition extends InvalidDataException
 {
     private Coordinates $position;
 

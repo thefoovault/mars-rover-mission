@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Rover\Exception;
 
 use MarsRoverMission\Domain\Rover\FacingDirection;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class InvalidFacingDirection extends DomainError
+final class InvalidFacingDirection extends InvalidDataException
 {
     private FacingDirection $facingDirection;
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map\Exception;
 
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\NotFoundException;
 
-final class MapNotFound extends DomainError
+final class MapNotFound extends NotFoundException
 {
     public function errorMessage(): string
     {

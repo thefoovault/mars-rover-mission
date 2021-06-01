@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Map\Exception;
 
 use MarsRoverMission\Domain\Rover\PointRover;
-use Shared\Domain\Exception\DomainError;
+use Shared\Domain\Exception\InvalidDataException;
 
-final class PositionOutOfBounds extends DomainError
+final class PositionOutOfBounds extends InvalidDataException
 {
     private PointRover $coordinates;
 
