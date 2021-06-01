@@ -17,8 +17,8 @@ final class SetRoverPositionController extends Controller
 
         $this->dispatch(
             new SetPositionCommand(
-                $parameters['x'],
-                $parameters['y'],
+                $parameters['point']['x'],
+                $parameters['point']['y'],
                 $parameters['facing-direction']
             )
         );

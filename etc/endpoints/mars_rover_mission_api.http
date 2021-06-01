@@ -18,8 +18,10 @@ POST localhost:8000/rover/position
 Content-Type: application/json
 
 {
-  "x": 0,
-  "y": 0,
+  "point": {
+    "x": 0,
+    "y": 0
+  },
   "facing-direction": "N"
 }
 
