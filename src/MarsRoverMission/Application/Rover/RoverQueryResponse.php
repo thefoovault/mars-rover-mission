@@ -15,7 +15,7 @@ final class RoverQueryResponse implements QueryResponse, JsonSerializable
     private const Y_COORDINATE = 'y';
     private const FACING_DIRECTION = 'facingDirection';
 
-    public function __construct(
+    private function __construct(
         private array $point,
         private string $facingDirection
     ){}
