@@ -14,9 +14,9 @@ class RoverTest extends TestCase
     {
         $rover = FakeRover::create();
 
-        $this->assertEquals(0, $rover->coordinates()->x()->value());
-        $this->assertEquals(0, $rover->coordinates()->y()->value());
-        $this->assertEquals('N', $rover->facingDirection()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $rover->coordinates()->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE, $rover->coordinates()->y()->value());
+        $this->assertEquals(FakeRover::FACING_DIRECTION, $rover->facingDirection()->value());
     }
 
     /** @test */
@@ -25,9 +25,9 @@ class RoverTest extends TestCase
         $rover = FakeRover::create();
         $rover->moveRight();
 
-        $this->assertEquals(0, $rover->coordinates()->x()->value());
-        $this->assertEquals(0, $rover->coordinates()->y()->value());
-        $this->assertEquals('E', $rover->facingDirection()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $rover->coordinates()->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE, $rover->coordinates()->y()->value());
+        $this->assertEquals(FakeRover::EAST_DIRECTION, $rover->facingDirection()->value());
     }
 
     /** @test */
@@ -36,9 +36,9 @@ class RoverTest extends TestCase
         $rover = FakeRover::create();
         $rover->moveLeft();
 
-        $this->assertEquals(0, $rover->coordinates()->x()->value());
-        $this->assertEquals(0, $rover->coordinates()->y()->value());
-        $this->assertEquals('W', $rover->facingDirection()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $rover->coordinates()->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE, $rover->coordinates()->y()->value());
+        $this->assertEquals(FakeRover::WEST_DIRECTION, $rover->facingDirection()->value());
     }
 
     /** @test */
@@ -48,9 +48,9 @@ class RoverTest extends TestCase
         $rover->moveLeft();
         $rover->moveLeft();
 
-        $this->assertEquals(0, $rover->coordinates()->x()->value());
-        $this->assertEquals(0, $rover->coordinates()->y()->value());
-        $this->assertEquals('S', $rover->facingDirection()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $rover->coordinates()->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE, $rover->coordinates()->y()->value());
+        $this->assertEquals(FakeRover::SOUTH_DIRECTION, $rover->facingDirection()->value());
     }
 
     /** @test */
@@ -62,9 +62,9 @@ class RoverTest extends TestCase
         $rover->moveRight();
         $rover->moveRight();
 
-        $this->assertEquals(0, $rover->coordinates()->x()->value());
-        $this->assertEquals(0, $rover->coordinates()->y()->value());
-        $this->assertEquals('N', $rover->facingDirection()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $rover->coordinates()->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE, $rover->coordinates()->y()->value());
+        $this->assertEquals(FakeRover::NORTH_DIRECTION, $rover->facingDirection()->value());
     }
 
     /** @test */
@@ -73,7 +73,8 @@ class RoverTest extends TestCase
         $rover = FakeRover::create();
         $coordinates = $rover->nextCoordinateIWantToMove();
 
-        $this->assertEquals(0, $coordinates->x()->value());
-        $this->assertEquals(1, $coordinates->y()->value());
+        $this->assertEquals(FakeRover::X_COORDINATE, $coordinates->x()->value());
+        $this->assertEquals(FakeRover::Y_COORDINATE + 1, $coordinates->y()->value());
+        $this->assertEquals(FakeRover::FACING_DIRECTION, $rover->facingDirection()->value());
     }
 }
