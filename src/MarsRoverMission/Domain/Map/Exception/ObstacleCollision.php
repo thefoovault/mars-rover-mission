@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Map\Exception;
 
 use MarsRoverMission\Domain\Map\Obstacle;
-use MarsRoverMission\Domain\Rover\PointRover;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Point;
 use Shared\Domain\Exception\InvalidDataException;
 
 final class ObstacleCollision extends InvalidDataException
 {
     private Obstacle $obstacle;
-    private PointRover $coordinates;
+    private Point $coordinates;
 
-    public function __construct(Obstacle $obstacle, PointRover $coordinates)
+    public function __construct(Obstacle $obstacle, Point $coordinates)
     {
         $this->obstacle = $obstacle;
         $this->coordinates = $coordinates;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\TwoDimensionalPlane;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Exception\InvalidPosition;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Exception\InvalidCoordinates;
 use Shared\Domain\ValueObject\IntegerValueObject;
 
 final class Coordinates extends IntegerValueObject
@@ -18,7 +18,7 @@ final class Coordinates extends IntegerValueObject
     private function assertValidPosition(int $value): void
     {
         if ($value < 0) {
-            throw new InvalidPosition($this);
+            throw new InvalidCoordinates($this);
         }
     }
 

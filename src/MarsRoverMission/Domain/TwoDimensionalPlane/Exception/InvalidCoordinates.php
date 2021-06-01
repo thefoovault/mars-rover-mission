@@ -7,13 +7,13 @@ namespace MarsRoverMission\Domain\TwoDimensionalPlane\Exception;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use Shared\Domain\Exception\InvalidDataException;
 
-final class InvalidPosition extends InvalidDataException
+final class InvalidCoordinates extends InvalidDataException
 {
-    private Coordinates $position;
+    private Coordinates $coordinates;
 
-    public function __construct(Coordinates $position)
+    public function __construct(Coordinates $coordinates)
     {
-        $this->position = $position;
+        $this->coordinates = $coordinates;
         parent::__construct();
     }
 
@@ -21,7 +21,7 @@ final class InvalidPosition extends InvalidDataException
     {
         return sprintf(
             'The position is invalid: <%s>',
-            $this->position->value()
+            $this->coordinates->value()
         );
     }
 }
