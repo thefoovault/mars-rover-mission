@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\MarsRoverMission\Application\Rover;
+namespace Test\MarsRoverMission\Application\SetPosition;
 
 use MarsRoverMission\Application\Map\Get\GetMapService;
 use MarsRoverMission\Application\Rover\SetPosition\SetPositionCommand;
