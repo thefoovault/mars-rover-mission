@@ -16,3 +16,15 @@ Once project is downloaded, we will execute:
 For more actions, execute `make` without arguments.
 
 # Mars Rover Mission
+
+You can interact with the following endpoints:
+
+|     Endpoint    | Verb |                                                                             Description                                                                            |
+|:---------------|:----:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /map/generate   | POST | Generates a map, overwritting the previous one.                                                                                                                    |
+| /map            | GET  | Gets the actual map.                                                                                                                                               |
+| /rover/position | POST | Sets the rover to a position in the map.                                                                                                                           |
+| /rover/move     | PUT  | Moves the rover in the map. Uses the Following instructions (**F**: Moves forward, **R**: Changes facing direction to its right, **L**: Changes facing direction to its left). |
+
+### TODO
+ - Exception mapping
