@@ -12,6 +12,7 @@ final class MoveRoverCommandHandler implements CommandHandler
     public function __construct(
         private MoveRoverService $moveRoverService
     ){}
+
     public function __invoke(MoveRoverCommand $moveRoverCommand): void
     {
         $instructions = Instructions::fromString($moveRoverCommand->instructions());

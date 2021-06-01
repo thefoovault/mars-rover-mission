@@ -6,7 +6,6 @@ namespace MarsRoverMission\Application\Rover\Move;
 
 use MarsRoverMission\Application\Map\Get\GetMapService;
 use MarsRoverMission\Application\Rover\Get\GetRoverService;
-use MarsRoverMission\Domain\Map\Service\CheckAvailablePositionService;
 use MarsRoverMission\Domain\Rover\Exception\RoverMovementInterrupted;
 use MarsRoverMission\Domain\Rover\Instruction;
 use MarsRoverMission\Domain\Rover\Instructions;

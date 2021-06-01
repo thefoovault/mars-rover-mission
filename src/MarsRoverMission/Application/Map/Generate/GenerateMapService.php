@@ -15,6 +15,7 @@ final class GenerateMapService
         private ObstacleGenerationService $obstacleGenerationService,
         private MapRepository $mapRepository
     ){}
+
     public function __invoke(Dimensions $dimensions): void
     {
         $obstacles = $this->obstacleGenerationService->generate($dimensions);
