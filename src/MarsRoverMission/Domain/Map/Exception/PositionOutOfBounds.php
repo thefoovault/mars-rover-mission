@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Map\Exception;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 use Shared\Domain\Exception\DomainError;
 
 final class PositionOutOfBounds extends DomainError
 {
-    private Coordinates $coordinates;
+    private PointRover $coordinates;
 
-    public function __construct(Coordinates $coordinates)
+    public function __construct(PointRover $coordinates)
     {
         $this->coordinates = $coordinates;
         parent::__construct();

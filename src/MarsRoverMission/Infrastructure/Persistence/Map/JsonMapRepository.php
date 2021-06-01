@@ -12,7 +12,7 @@ use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\MapRepository;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Width;
 
 final class JsonMapRepository implements MapRepository
@@ -58,8 +58,8 @@ final class JsonMapRepository implements MapRepository
         $obstacles = [];
         foreach ($obstaclesArray as $obstacle) {
             $obstacles[] = new Obstacle(
-                new Position($obstacle['x']),
-                new Position($obstacle['y'])
+                new Coordinates($obstacle['x']),
+                new Coordinates($obstacle['y'])
             );
         }
         return new Obstacles($obstacles);

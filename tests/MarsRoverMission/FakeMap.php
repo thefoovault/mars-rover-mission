@@ -11,7 +11,7 @@ use MarsRoverMission\Domain\TwoDimensionalPlane\Height;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Width;
 
 final class FakeMap
@@ -25,8 +25,8 @@ final class FakeMap
             ),
             new Obstacles([
                 new Obstacle(
-                    new Position(2),
-                    new Position(2)
+                    new Coordinates(2),
+                    new Coordinates(2)
                 )
             ])
         );

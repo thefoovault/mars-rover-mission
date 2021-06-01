@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\TwoDimensionalPlane\Exception;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use Shared\Domain\Exception\DomainError;
 
 final class InvalidPosition extends DomainError
 {
-    private Position $position;
+    private Coordinates $position;
 
-    public function __construct(Position $position)
+    public function __construct(Coordinates $position)
     {
         $this->position = $position;
         parent::__construct();

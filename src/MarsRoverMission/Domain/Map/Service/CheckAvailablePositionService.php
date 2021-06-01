@@ -10,17 +10,17 @@ use MarsRoverMission\Domain\Map\Exception\PositionOutOfBounds;
 use MarsRoverMission\Domain\Map\Map;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 
 final class CheckAvailablePositionService
 {
-    public function check(Map $map, Coordinates $coordinates): void
+    public function check(Map $map, PointRover $coordinates): void
     {
         $this->assertInMap($map->dimensions(), $coordinates);
         $this->assertNotCollisions($map->obstacles(), $coordinates);
     }
 
-    private function assertInMap(Dimensions $dimensions, Coordinates $coordinates): void
+    private function assertInMap(Dimensions $dimensions, PointRover $coordinates): void
     {
         if ($coordinates->x()->value() > $dimensions->width()->value()
             || $coordinates->y()->value() > $dimensions->height()->value()
@@ -29,7 +29,7 @@ final class CheckAvailablePositionService
         }
     }
 
-    private function assertNotCollisions(Obstacles $obstacles, Coordinates $coordinates): void
+    private function assertNotCollisions(Obstacles $obstacles, PointRover $coordinates): void
     {
         /** @var Obstacle $obstacle */
         foreach ($obstacles as $obstacle) {

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Domain\Rover;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 
 final class Rover
 {
     public function __construct(
-        private Coordinates $coordinates,
+        private PointRover $coordinates,
         private FacingDirection $facingDirection
     ){}
 
-    public function coordinates(): Coordinates
+    public function coordinates(): PointRover
     {
         return $this->coordinates;
     }
@@ -23,7 +23,7 @@ final class Rover
         return $this->facingDirection;
     }
 
-    public function nextCoordinateIWantToMove(): Coordinates
+    public function nextCoordinateIWantToMove(): PointRover
     {
         $xIncrement = 0;
         $yIncrement = 0;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Application\Rover\SetPosition;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 use MarsRoverMission\Domain\Rover\FacingDirection;
 use Shared\Domain\Bus\Command\CommandHandler;
 
@@ -17,9 +17,9 @@ final class SetPositionCommandHandler implements CommandHandler
 
     public function __invoke(SetPositionCommand $setPositionCommand): void
     {
-        $coordinates = new Coordinates(
-            new Position($setPositionCommand->x()),
-            new Position($setPositionCommand->y())
+        $coordinates = new PointRover(
+            new Coordinates($setPositionCommand->x()),
+            new Coordinates($setPositionCommand->y())
         );
 
         $facingDirection = new FacingDirection($setPositionCommand->facingDirection());

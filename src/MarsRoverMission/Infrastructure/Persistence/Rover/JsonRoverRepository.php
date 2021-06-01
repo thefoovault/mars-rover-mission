@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MarsRoverMission\Infrastructure\Persistence\Rover;
 
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 use MarsRoverMission\Domain\Rover\Exception\RoverNotFound;
 use MarsRoverMission\Domain\Rover\FacingDirection;
 use MarsRoverMission\Domain\Rover\Rover;
@@ -39,9 +39,9 @@ final class JsonRoverRepository implements RoverRepository
         $roverInfo = json_decode(file_get_contents(self::FILE), true);
 
         return new Rover(
-            new Coordinates(
-                new Position($roverInfo['coordinates']['x']),
-                new Position($roverInfo['coordinates']['y'])
+            new PointRover(
+                new Coordinates($roverInfo['coordinates']['x']),
+                new Coordinates($roverInfo['coordinates']['y'])
             ),
             new FacingDirection($roverInfo['facingDirection'])
         );

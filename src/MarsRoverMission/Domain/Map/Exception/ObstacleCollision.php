@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace MarsRoverMission\Domain\Map\Exception;
 
 use MarsRoverMission\Domain\Map\Obstacle;
-use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
+use MarsRoverMission\Domain\Rover\PointRover;
 use Shared\Domain\Exception\DomainError;
 
 final class ObstacleCollision extends DomainError
 {
     private Obstacle $obstacle;
-    private Coordinates $coordinates;
+    private PointRover $coordinates;
 
-    public function __construct(Obstacle $obstacle, Coordinates $coordinates)
+    public function __construct(Obstacle $obstacle, PointRover $coordinates)
     {
         $this->obstacle = $obstacle;
         $this->coordinates = $coordinates;

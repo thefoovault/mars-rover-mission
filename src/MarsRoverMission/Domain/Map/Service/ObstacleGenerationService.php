@@ -7,7 +7,7 @@ namespace MarsRoverMission\Domain\Map\Service;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Dimensions;
 use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
-use MarsRoverMission\Domain\TwoDimensionalPlane\Position;
+use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 
 final class ObstacleGenerationService
 {
@@ -36,8 +36,8 @@ final class ObstacleGenerationService
         $randomY = mt_rand(self::FIRST_POSITION, $dimensions->height()->value());
 
         return new Obstacle(
-            new Position($randomX),
-            new Position($randomY)
+            new Coordinates($randomX),
+            new Coordinates($randomY)
         );
     }
 
