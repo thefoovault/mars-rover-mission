@@ -10,6 +10,7 @@ use MarsRoverMission\Application\Map\Generate\GenerateMapService;
 use MarsRoverMission\Domain\Map\MapRepository;
 use MarsRoverMission\Domain\Map\Service\ObstacleGenerationService;
 use PHPUnit\Framework\TestCase;
+use Test\MarsRoverMission\FakeMap;
 
 final class GenerateMapCommandHandlerTest extends TestCase
 {
@@ -36,8 +37,8 @@ final class GenerateMapCommandHandlerTest extends TestCase
 
         $this->commandHandler->__invoke(
             new GenerateMapCommand(
-                10,
-                10
+                FakeMap::WIDTH,
+                FakeMap::HEIGHT
             )
         );
     }

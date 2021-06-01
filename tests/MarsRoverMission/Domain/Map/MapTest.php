@@ -24,7 +24,7 @@ final class MapTest extends TestCase
         $this->assertInstanceOf(Obstacles::class, $map->obstacles());
         $this->assertInstanceOf(Traversable::class, $iterator);
         $this->assertInstanceOf(Obstacle::class, $obstacle);
-        $this->assertEquals(FakeMap::X_COORDINATE, $obstacle->x()->value());
-        $this->assertEquals(FakeMap::Y_COORDINATE, $obstacle->y()->value());
+        $this->assertEquals(FakeMap::OBSTACLE_X_COORDINATE, $obstacle->x()->value());
+        $this->assertEquals(FakeMap::OBSTACLE_Y_COORDINATE, $obstacle->y()->value());
     }
 }

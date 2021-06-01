@@ -16,6 +16,7 @@ use MarsRoverMission\Domain\Rover\Exception\InvalidFacingDirection;
 use MarsRoverMission\Domain\Rover\RoverRepository;
 use PHPUnit\Framework\TestCase;
 use Test\MarsRoverMission\FakeMap;
+use Test\MarsRoverMission\FakeRover;
 
 final class SetPositionCommandHandlerTest extends TestCase
 {
@@ -51,9 +52,9 @@ final class SetPositionCommandHandlerTest extends TestCase
 
         $this->commandHandler->__invoke(
             new SetPositionCommand(
-                0,
-                0,
-                'N'
+                FakeRover::X_COORDINATE,
+                FakeRover::Y_COORDINATE,
+            FakeRover::FACING_DIRECTION
             )
         );
     }
@@ -74,9 +75,9 @@ final class SetPositionCommandHandlerTest extends TestCase
 
         $this->commandHandler->__invoke(
             new SetPositionCommand(
-                20,
-                0,
-                'N'
+                FakeMap::WIDTH + 10,
+                FakeRover::Y_COORDINATE,
+                FakeRover::FACING_DIRECTION
             )
         );
     }
@@ -97,9 +98,9 @@ final class SetPositionCommandHandlerTest extends TestCase
 
         $this->commandHandler->__invoke(
             new SetPositionCommand(
-                2,
-                2,
-                'N'
+                FakeMap::OBSTACLE_X_COORDINATE,
+                FakeMap::OBSTACLE_Y_COORDINATE,
+                FakeRover::FACING_DIRECTION
             )
         );
     }
@@ -119,8 +120,8 @@ final class SetPositionCommandHandlerTest extends TestCase
 
         $this->commandHandler->__invoke(
             new SetPositionCommand(
-                0,
-                0,
+                FakeRover::X_COORDINATE,
+                FakeRover::Y_COORDINATE,
                 'A'
             )
         );

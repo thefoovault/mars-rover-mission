@@ -18,8 +18,8 @@ final class FakeMap
 {
     public const WIDTH = 10;
     public const HEIGHT = 20;
-    public const X_COORDINATE = 2;
-    public const Y_COORDINATE = 2;
+    public const OBSTACLE_X_COORDINATE = 2;
+    public const OBSTACLE_Y_COORDINATE = 2;
 
     public static function create(): Map
     {
@@ -30,8 +30,8 @@ final class FakeMap
             ),
             new Obstacles([
                 new Obstacle(
-                    new Coordinates(self::X_COORDINATE),
-                    new Coordinates(self::Y_COORDINATE)
+                    new Coordinates(self::OBSTACLE_X_COORDINATE),
+                    new Coordinates(self::OBSTACLE_Y_COORDINATE)
                 )
             ])
         );
