@@ -10,28 +10,24 @@ use Shared\Domain\Bus\Query\QueryResponse;
 final class RoverQueryResponse implements QueryResponse
 {
     public function __construct(
-        private int $xCoordinate,
-        private int $yCoordinate,
+        private array $point,
         private string $facingDirection
     ){}
 
     public static function fromRover(Rover $rover): self
     {
         return new self(
-            $rover->coordinates()->x()->value(),
-            $rover->coordinates()->y()->value(),
+            [
+                'x' => $rover->coordinates()->x()->value(),
+                'y' => $rover->coordinates()->y()->value(),
+            ],
             $rover->facingDirection()->value()
         );
     }
 
-    public function getXCoordinate(): int
+    public function getPoint(): array
     {
-        return $this->xCoordinate;
-    }
-
-    public function getYCoordinate(): int
-    {
-        return $this->yCoordinate;
+        return $this->point;
     }
 
     public function getFacingDirection(): string

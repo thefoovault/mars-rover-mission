@@ -12,28 +12,24 @@ final class MapQueryResponse implements QueryResponse
     use ObstaclesToArray;
 
     private function __construct(
-        private int $width,
-        private int $height,
+        private array $dimensions,
         private array $obstacles
     ){}
 
     public static function fromMap(Map $map): self
     {
         return new self(
-            $map->dimensions()->width()->value(),
-            $map->dimensions()->height()->value(),
+            [
+                'width' => $map->dimensions()->width()->value(),
+                'height' => $map->dimensions()->height()->value()
+            ],
             self::extractObstaclesToArray($map->obstacles())
         );
     }
 
-    public function getWidth(): int
+    public function getDimensions(): array
     {
-        return $this->width;
-    }
-
-    public function getHeight(): int
-    {
-        return $this->height;
+        return $this->dimensions;
     }
 
     public function getObstacles(): array
