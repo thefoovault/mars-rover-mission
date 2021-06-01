@@ -44,15 +44,15 @@ final class GetRoverQueryHandlerTest extends TestCase
         $queryResponse = $this->getRoverQueryHandler->__invoke(
             new GetRoverQuery()
         );
-        $point = $queryResponse->getPoint();
+        $point = $queryResponse->point();
 
         $fakeQueryResponse = RoverQueryResponse::fromRover($rover);
-        $fakePoint = $fakeQueryResponse->getPoint();
+        $fakePoint = $fakeQueryResponse->point();
 
         $this->assertInstanceOf(RoverQueryResponse::class, $queryResponse);
         $this->assertEquals($fakePoint['x'], $point['x']);
         $this->assertEquals($fakePoint['y'], $point['y']);
-        $this->assertEquals($fakeQueryResponse->getFacingDirection(), $queryResponse->getFacingDirection());
+        $this->assertEquals($fakeQueryResponse->facingDirection(), $queryResponse->facingDirection());
     }
 
     /** @test */

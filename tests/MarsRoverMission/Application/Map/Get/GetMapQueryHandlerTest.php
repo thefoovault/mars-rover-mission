@@ -43,15 +43,15 @@ final class GetMapQueryHandlerTest extends TestCase
         $mapResponse = $this->getMapQueryHandler->__invoke(
             new GetMapQuery()
         );
-        $dimensions = $mapResponse->getDimensions();
+        $dimensions = $mapResponse->dimensions();
 
         $fakeMapResponse = MapQueryResponse::fromMap($map);
-        $fakeDimensions = $fakeMapResponse->getDimensions();
+        $fakeDimensions = $fakeMapResponse->dimensions();
 
         $this->assertInstanceOf(MapQueryResponse::class, $mapResponse);
         $this->assertEquals($fakeDimensions['width'], $dimensions['width']);
         $this->assertEquals($fakeDimensions['height'], $dimensions['height']);
-        $this->assertIsArray($mapResponse->getObstacles());
+        $this->assertIsArray($mapResponse->obstacles());
     }
 
     /** @test */
