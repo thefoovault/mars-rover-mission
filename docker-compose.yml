@@ -10,7 +10,9 @@ services:
       - ./:/app
     working_dir: /app
     ports:
-      - 9001:9000
+      - 9001:9003 #9003:9000 fa desapareixer missatges d'error pero llavors no furula xdebug
+    environment:
+      XDEBUG_MODE: debug
 
   nginx_mars_rover_mission:
     image: nginx:latest
