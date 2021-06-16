@@ -24,3 +24,53 @@ services:
       - ./apps/MarsRoverMissionApi/public/:/app/apps/MarsRoverMissionApi/public
     depends_on:
       - php_mars_rover_mission
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}
+    container_name: elasticsearch
+    ports: [ '9200:9200' ]
+    environment:
+      - "ELASTIC_PASSWORD=elastic"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "discovery.type=single-node"
+      - "TAKE_FILE_OWNERSHIP=1"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - './var/elasticsearch:/usr/share/elasticsearch/data'
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:${ELK_VERSION}
+    container_name: logstash
+    environment:
+      - "ELASTIC_PASSWORD=elastic"
+    ports: [ '9600:9600' ]
+    depends_on: [ 'elasticsearch' ]
+    volumes:
+      - './etc/logstash/pipeline:/usr/share/logstash/pipeline'
+      - './var/logs:/logs'
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:${ELK_VERSION}
+    container_name: filebeat
+    environment:
+      - "ELASTIC_PASSWORD=elastic"
+    user: root
+    volumes:
+      - './var/filebeat/log/:/var/log/:ro'
+      - './var/filebeat/docker.sock:/var/run/docker.sock'
+      - './var/logs/:/var/lib/docker/containers/logs:ro'
+      - './etc/infrastructure/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml'
+    command: [ "--strict.perms=false" ]
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELK_VERSION}
+    container_name: kibana
+    environment:
+      - "ELASTIC_PASSWORD=elastic"
+    ports: [ '5601:5601' ]
+    depends_on:
+      - elasticsearch

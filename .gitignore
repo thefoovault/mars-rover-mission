@@ -15,3 +15,4 @@
 .phpunit.result.cache
 /build/
 ###< phpunit/phpunit ###
+/var/
