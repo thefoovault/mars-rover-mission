@@ -13,7 +13,6 @@ filebeat.inputs:
           fields: ['message']
           target: json
 
-output.elasticsearch:
-  hosts: ["elasticsearch:9200"]
-  username: elastic
-  password: changeme
+output.logstash:
+  enabled: true
+  hosts: ["logstash:5044"]

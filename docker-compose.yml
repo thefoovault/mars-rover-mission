@@ -48,21 +48,23 @@ services:
     environment:
       - "ELASTIC_PASSWORD=elastic"
     ports: [ '9600:9600' ]
-    depends_on: [ 'elasticsearch' ]
+    depends_on:
+      - elasticsearch
     volumes:
-      - './etc/logstash/pipeline:/usr/share/logstash/pipeline'
-      - './var/logs:/logs'
+      - './etc/infrastructure/logstash/pipeline:/usr/share/logstash/pipeline'
+      - './apps/MarsRoverMissionApi/var/log:/logs'
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:${ELK_VERSION}
     container_name: filebeat
     environment:
       - "ELASTIC_PASSWORD=elastic"
+    ports: [ '5044:5044' ]
+    depends_on:
+      - logstash
     user: root
     volumes:
-      - './var/filebeat/log/:/var/log/:ro'
-      - './var/filebeat/docker.sock:/var/run/docker.sock'
-      - './var/logs/:/var/lib/docker/containers/logs:ro'
+      - './apps/MarsRoverMissionApi/var/log/:/var/lib/docker/containers/logs:ro'
       - './etc/infrastructure/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml'
     command: [ "--strict.perms=false" ]
 
