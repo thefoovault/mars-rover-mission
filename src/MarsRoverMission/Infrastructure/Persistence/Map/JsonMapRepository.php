@@ -14,12 +14,17 @@ use MarsRoverMission\Domain\Map\Obstacle;
 use MarsRoverMission\Domain\Map\Obstacles;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Coordinates;
 use MarsRoverMission\Domain\TwoDimensionalPlane\Width;
+use Psr\Log\LoggerInterface;
 
 final class JsonMapRepository implements MapRepository
 {
     use ObstaclesToArray;
 
     private const FILE = '../../../etc/data/map.json';
+
+    public function __construct(
+        private LoggerInterface $logger
+    ){}
 
     public function save(Map $map): void
     {
@@ -39,18 +44,25 @@ final class JsonMapRepository implements MapRepository
 
     public function find(): Map
     {
-        if (!file_exists(self::FILE)) {
-            throw new MapNotFound();
-        }
-        $mapInfo = json_decode(file_get_contents(self::FILE), true);
+        try {
+            $this->logger->info("User wants to find the map ");
+            if (!file_exists(self::FILE)) {
+                throw new MapNotFound();
+            }
 
-        return new Map(
-            new Dimensions(
-                new Width($mapInfo['dimensions']['width']),
-                new Height($mapInfo['dimensions']['width'])
-            ),
-            $this->extractArrayToObstacles($mapInfo['obstacles'])
-        );
+            $mapInfo = json_decode(file_get_contents(self::FILE), true);
+
+            return new Map(
+                new Dimensions(
+                    new Width($mapInfo['dimensions']['width']),
+                    new Height($mapInfo['dimensions']['width'])
+                ),
+                $this->extractArrayToObstacles($mapInfo['obstacles'])
+            );
+        } catch (MapNotFound $exception){
+            $this->logger->error('Map not found!', ['exception' => $exception]);
+            throw $exception;
+        }
     }
 
     private function extractArrayToObstacles(array $obstaclesArray): Obstacles
