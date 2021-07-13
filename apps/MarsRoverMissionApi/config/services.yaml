@@ -15,6 +15,10 @@ services:
         arguments:
             $bus: '@query.bus'
 
+    Shared\Infrastructure\Symfony\Controller\ApiExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onException }
+
     _instanceof:
         Shared\Domain\Bus\Command\CommandHandler:
             tags:
@@ -29,5 +33,3 @@ framework:
         buses:
             command.bus:
             query.bus:
-
-    error_controller: MarsRoverMissionApi\Controller\ErrorController

@@ -17,6 +17,11 @@ final class InvalidInstruction extends InvalidDataException
         parent::__construct();
     }
 
+    public function errorCode(): string
+    {
+        return 'invalid_instruction';
+    }
+
     public function errorMessage(): string
     {
         return sprintf(

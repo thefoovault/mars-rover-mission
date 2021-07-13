@@ -17,6 +17,11 @@ final class InvalidCoordinates extends InvalidDataException
         parent::__construct();
     }
 
+    public function errorCode(): string
+    {
+        return 'invalid_coordinates';
+    }
+
     public function errorMessage(): string
     {
         return sprintf(

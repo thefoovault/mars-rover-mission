@@ -17,6 +17,11 @@ final class RoverMovementInterrupted extends InvalidDataException
         parent::__construct();
     }
 
+    public function errorCode(): string
+    {
+        return 'rover_movement_interrupted';
+    }
+
     public function errorMessage(): string
     {
         return sprintf(

@@ -28,6 +28,7 @@ final class JsonMapRepository implements MapRepository
 
     public function save(Map $map): void
     {
+        $this->logger->info("User save a new map ");
         file_put_contents(self::FILE, json_encode($this->extractMapToArray($map)));
     }
 

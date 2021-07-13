@@ -17,6 +17,11 @@ final class PositionOutOfBounds extends InvalidDataException
         parent::__construct();
     }
 
+    public function errorCode(): string
+    {
+        return 'point_out_of_bounds';
+    }
+
     public function errorMessage(): string
     {
         return sprintf(

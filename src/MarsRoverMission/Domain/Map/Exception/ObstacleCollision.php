@@ -21,6 +21,11 @@ final class ObstacleCollision extends InvalidDataException
         parent::__construct();
     }
 
+    public function errorCode(): string
+    {
+        return 'obstacle_collision';
+    }
+
     public function errorMessage(): string
     {
         return sprintf(

@@ -6,7 +6,7 @@
 /apps/MarsRoverMissionApi/public/bundles/
 /apps/MarsRoverMissionApi/var/
 /vendor/
-/.idea
+/.idea/
 /etc/data/
 ###< symfony/framework-bundle ###
 
